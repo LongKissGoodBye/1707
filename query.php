@@ -1,8 +1,5 @@
 <?php 
-@header("content-type:text/html;charset=UTF-8");
-@header("Access-Control-Allow-Origin:*");
-$connect = mysql_connect("localhost:3306","root","root"); //1:通过指定的用户名和密码链接到指定的连接处
-mysql_select_db("1707");
+require_once("config.php");
 //2 找到我们需要连接的数据库
 
 //3 准备好要执行的mysql语句

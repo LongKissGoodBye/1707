@@ -1,8 +1,5 @@
 <?php 
-@header("content-type:text/html;charset=UTF-8");
-@header("Access-Control-Allow-Origin:*");
-$connect = mysql_connect("localhost:3306","root","root");
-mysql_select_db("1707");
+require_once("config.php");
 
 $Id = $_GET["id"];
 $username = $_GET["username"];

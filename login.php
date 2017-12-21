@@ -1,12 +1,8 @@
 <?php 
-@header("content-type:text/html;charset=UTF-8");
-@header('Access-Control-Allow-Origin: *');
-$connect = mysql_connect("localhost:3306","root","root"); //
-
+require_once("config.php");
 $tel = $_GET["tel"];
 $userpwd = $_GET["userpwd"];
 
-mysql_select_db("1707");
 
 $sql = "select userpwd from userinfo where tel = '$tel'";
 // echo $sql;
