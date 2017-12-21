@@ -11,8 +11,8 @@ if(checkUsernameById($username,$Id)){
 
 
 $sql = "update  userinfo set username = '$username',userpwd ='$userpwd' where id = $Id ";
-mysql_query($sql);
-$count = mysql_affected_rows();
+mysqli_query($conn, $sql);
+$count = mysqli_affected_rows();
 if ($count >0) {
     $json = array();
     $json["code"] =1;
@@ -34,9 +34,9 @@ if ($count >0) {
 function  checkUsernameById($username,$id){
     $var_sql = "select  id from userinfo where username = '$username' ";
     //4 执行指定的sql语句
-    $var_result  = mysql_query($var_sql);
+    $var_result  = mysqli_query($var_sql);
     //5:遍历一行一行的结果
-    $item = mysql_fetch_row($var_result);
+    $item = mysqli_fetch_row($var_result);
 
     if($item[0]==$id || $item[0]==null){
         return true;

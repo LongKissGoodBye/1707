@@ -6,9 +6,9 @@ $id  = $_GET["id"];
 //3 准备好要执行的mysql语句
 $var_sql = "DELETE from userinfo where id = $id ";
 
-$var_result = mysql_query($var_sql);//执行该sql语句
+$var_result = mysqli_query($conn, $var_sql);//执行该sql语句
 
-$var_count  = mysql_affected_rows();
+$var_count  = mysqli_affected_rows();
 
 if($var_count>0){
     $json = array();

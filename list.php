@@ -7,11 +7,11 @@ $shownum = $_GET["shownum"];
 
 $sql = "select * from userinfo where  username  like '%$search%' ORDER BY $order limit $skipnum,$shownum";
 
-$sql_result = mysql_query($sql);
+$sql_result = mysqli_query($conn, $sql);
 
 $list = array();
 
-while($item = mysql_fetch_row($sql_result)){
+while($item = mysqli_fetch_row($sql_result)){
     $obj = array();
     $obj["id"] = $item[0];
     $obj["username"] = $item[1];

@@ -4,9 +4,9 @@ $search = $_GET["search"];
 
 $sql = "select count(*) from userinfo where  username  like '%$search%' ";
 
-$sql_result = mysql_query($sql);
+$sql_result = mysqli_query($conn, $sql);
 
-    $item = mysql_fetch_row($sql_result);
+    $item = mysqli_fetch_row($sql_result);
     $obj = array();
     $obj["count"] = $item[0];
 

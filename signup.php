@@ -9,15 +9,15 @@ $code = $_GET["code"];
 $sql = "select code from telcode where tel = '$tel'";
 // echo $sql;
 
-$result = mysql_query($sql);
+$result = mysqli_query($conn, $sql);
 
-$item = mysql_fetch_row($result);
+$item = mysqli_fetch_row($result);
 
 
 if ($item[0] == $code) {
   $sql = "insert into userinfo (tel, userpwd) value ('$tel', '$userpwd')";
-  mysql_query($sql);
-  $count = mysql_affected_rows();
+  mysqli_query($sql);
+  $count = mysqli_affected_rows();
   
   if ($count > 0) {
     $json = array();
@@ -39,6 +39,6 @@ if ($item[0] == $code) {
 
 
 
-mysql_close($connect);
+mysqli_close($conn);
 
  ?>

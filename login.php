@@ -7,9 +7,9 @@ $userpwd = $_GET["userpwd"];
 $sql = "select userpwd from userinfo where tel = '$tel'";
 // echo $sql;
 
-$result = mysql_query($sql);
+$result = mysqli_query($conn, $sql);
 // echo $result;
-$item = mysql_fetch_row($result);
+$item = mysqli_fetch_row($result);
 // echo $item;
 
 if ($item[0] == $userpwd) {
@@ -24,5 +24,5 @@ if ($item[0] == $userpwd) {
   echo json_encode($json);
 }
 
-mysql_close($connect);
+mysqli_close($conn);
  ?>
