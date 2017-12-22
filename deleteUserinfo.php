@@ -7,7 +7,7 @@ $sql = "DELETE from userinfo where id =$Id  ";
 
 $result = mysql_query($sql);
 
-$count = mysql_affected_rows($result);
+$count = mysql_affected_rows();
 
 if ($count >0) {
     $json = array();
