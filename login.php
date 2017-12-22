@@ -7,12 +7,12 @@ $userpwd = $_GET["userpwd"];
 $sql = "select userpwd from userinfo where tel = '$tel'";
 // echo $sql;
 
-$result = mysqli_query($conn, $sql);
+$result = mysql_query($sql);
 // echo $result;
-$item = mysqli_fetch_row($result);
+$item = mysql_fetch_row($result);
 // echo $item;
 
-if ($item[0] == $userpwd) {
+if ($item != "" && $item[0] == $userpwd) {
     $json = array();
     $json["code"] = 1;
     $json["msg"] = "登录成功";
@@ -24,5 +24,5 @@ if ($item[0] == $userpwd) {
   echo json_encode($json);
 }
 
-mysqli_close($conn);
+mysql_close($conn);
  ?>

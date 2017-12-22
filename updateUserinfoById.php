@@ -10,20 +10,20 @@ $userpwd = $_GET["userpwd"];
 if(checkUsernameById($username,$Id)){
 
 
-$sql = "update  userinfo set username = '$username',userpwd ='$userpwd' where id = $Id ";
-mysqli_query($conn, $sql);
-$count = mysqli_affected_rows();
-if ($count >0) {
-    $json = array();
-    $json["code"] =1;
-    $json["msg"]= "成功";
-    echo  json_encode($json);
-}else{
-    $json = array();
-    $json["code"] =0;
-    $json["msg"]= "失败";
-    echo  json_encode($json);
-}
+    $sql = "update  userinfo set username = '$username',userpwd ='$userpwd' where id = $Id ";
+    $var_result = mysql_query($sql);
+    $count = mysql_affected_rows($var_result);
+    if ($count >0) {
+        $json = array();
+        $json["code"] =1;
+        $json["msg"]= "成功";
+        echo  json_encode($json);
+    }else{
+        $json = array();
+        $json["code"] =0;
+        $json["msg"]= "失败";
+        echo  json_encode($json);
+    }
 }else{
       $json = array();
       $json["code"] =0;
@@ -34,9 +34,9 @@ if ($count >0) {
 function  checkUsernameById($username,$id){
     $var_sql = "select  id from userinfo where username = '$username' ";
     //4 执行指定的sql语句
-    $var_result  = mysqli_query($var_sql);
+    $var_result  = mysql_query($var_sql);
     //5:遍历一行一行的结果
-    $item = mysqli_fetch_row($var_result);
+    $item = mysql_fetch_row($var_result);
 
     if($item[0]==$id || $item[0]==null){
         return true;

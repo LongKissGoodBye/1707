@@ -5,8 +5,8 @@ $username = $_GET["username"];
 $userpwd = $_GET["userpwd"];
 
 $sql = "insert into userinfo(username,userpwd) values('$username','$userpwd')";
-mysqli_query($conn ,$sql);
-$count = mysqli_affected_rows();
+$result = mysql_query($sql);
+$count = mysql_affected_rows($result);
 
 if ($count >0) {
     $json = array();
